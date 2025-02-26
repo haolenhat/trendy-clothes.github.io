@@ -942,6 +942,10 @@ svg.primary-color-500 {
   transform: scale(1.1);
 }
 
+.image-holder img {
+  width: 300px;
+  height: 300px;
+}
 
 /*----------------------------------------------*/
 /* 4 SITE STRUCTURE */
