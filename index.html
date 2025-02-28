@@ -27,10 +27,24 @@
       rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet">
-
   </head>
 
 <body>
+
+  <script>
+    // Load header vào trang
+    fetch("header.html")
+      .then(response => response.text())
+      .then(data => document.getElementById("header").innerHTML = data);
+
+    // Chuyển hướng khi click vào sản phẩm
+    document.querySelectorAll(".product").forEach(product => {
+      product.addEventListener("click", function () {
+        let productName = this.getAttribute("data-name");
+        window.location.href = `product.html?name=${encodeURIComponent(productName)}`;
+      });
+    });
+  </script>
   <!-- svg section -->
   <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
     <symbol id="user" viewBox="0 0 512 512">
@@ -321,137 +335,7 @@
   </div>
 
   <!-- header nav section -->
-  <header id="header" class="fixed-top">
-    <nav class="header-top first-header bg-primary py-1 ">
-      <div class="container-md">
-        <div class="d-flex flex-wrap justify-content-between align-items-center">
-          <ul class="info d-flex flex-wrap list-unstyled m-0">
-            <li class="text-white text-titlecase d-flex align-items-center  me-4">
-              Beautifully crafted Fashion Blog Template
-            </li>
-
-          </ul>
-          <ul class="nav d-flex flex-wrap list-unstyled m-0 me-lg-5">
-            <li class="text-white text-uppercase d-flex align-items-center me-5">
-              <a href="">About </a>
-            </li>
-            <li class="text-white text-uppercase d-flex align-items-center me-5">
-              <a href="">Contact</a>
-            </li>
-            <li class="text-white text-uppercase d-flex align-items-center me-5">
-              <a href="">Sponsor</a>
-            </li>
-            <li class="text-white text-uppercase d-flex align-items-center ">
-              <a href="">Subscribe</a>
-            </li>
-          </ul>
-
-        </div>
-      </div>
-    </nav>
-    <nav id="primary-header"
-      style="    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, .1), 0 2px 4px -1px rgba(0, 0, 0, .06);"
-      class="navbar bg-white second-header navbar-expand-lg  ">
-      <div class="container-md justify-content-between d-flex">
-        <a class="navbar-brand" href="index.html">
-          <img src="images/logo.png" style="width: 100%;height: 80px;" class="logo ">
-        </a>
-        <button class="navbar-toggler border-0 d-flex d-lg-none order-3 p-2 shadow-none" type="button"
-          data-bs-toggle="offcanvas" data-bs-target="#bdNavbar" aria-controls="bdNavbar" aria-expanded="false">
-          <svg class=" text-primary" width="60" height="60">
-            <use xlink:href="#navbar-icon"></use>
-          </svg>
-        </button>
-        <div class="header-bottom offcanvas offcanvas-end" id="bdNavbar" aria-labelledby="bdNavbarOffcanvasLabel">
-          <div class="offcanvas-header px-4 pt-5 pb-0">
-            <button type="button" class="btn-close btn-close-black" data-bs-dismiss="offcanvas" aria-label="Close"
-              data-bs-target="#bdNavbar"></button>
-          </div>
-          <div class="offcanvas-body align-items-center justify-content-end">
-            <ul class="navbar-nav align-items-center mt-1 me-5">
-              <li class="nav-item px-4">
-                <a class="nav-link nav-link-ltr text-uppercase active p-0" aria-current="page"
-                  href="index.html">Home</a>
-              </li>
-              <li class="nav-item px-4">
-                <a class="nav-link nav-link-ltr text-uppercase p-0" href="about-us.html">Reviews </a>
-              </li>
-              <li class="nav-item px-4">
-                <a class="nav-link nav-link-ltr text-uppercase p-0" href="blog.html">Fashion</a>
-              </li>
-              <li class="nav-item px-4">
-                <a class="nav-link nav-link-ltr text-uppercase p-0" href="shop.html">Clothing</a>
-              </li>
-              <li class="nav-item px-4">
-                <a class="nav-link nav-link-ltr text-uppercase p-0" href="blog.html">News</a>
-              </li>
-              <li class="nav-item dropdown px-4">
-                <a class="nav-link dropdown-toggle nav-link-ltr text-uppercase p-0" href="#" role="button"
-                  data-bs-toggle="dropdown" aria-expanded="false">
-                  SHOP
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="shop.html">Shop<span
-                        class="badge bg-secondary-subtle text-dark ms-2">PRO</span></a></li>
-                  <li><a class="dropdown-item" href="single-product.html">Shop-Single<span
-                        class="badge bg-secondary-subtle text-dark ms-2">PRO</span></a></li>
-                </ul>
-              </li>
-              <li class="nav-item px-4 dropdown">
-                <a class="nav-link dropdown-toggle nav-link-ltr text-uppercase p-0" href="#" role="button"
-                  data-bs-toggle="dropdown" aria-expanded="false">
-                  Pages
-                </a>
-                <ul class="dropdown-menu p-3 p-lg-0" aria-labelledby="pages">
-                  <li><a href="about-us.html" class="dropdown-item">About Us<span
-                        class="badge bg-secondary-subtle text-dark ms-2">PRO</span></a></li>
-                  <li><a href="cart.html" class="dropdown-item">Cart<span
-                        class="badge bg-secondary-subtle text-dark ms-2">PRO</span></a></li>
-                  <li><a href="wishlist.html" class="dropdown-item">Wishlist<span
-                        class="badge bg-secondary-subtle text-dark ms-2">PRO</span></a></li>
-                  <li><a class="dropdown-item" href="blog.html">Blog<span
-                        class="badge bg-secondary-subtle text-dark ms-2">PRO</span></a></li>
-                  <li><a class="dropdown-item" href="single-post.html">Single-post<span
-                        class="badge bg-secondary-subtle text-dark ms-2">PRO</span></a></li>
-                  <li><a href="checkout.html" class="dropdown-item">Checkout<span
-                        class="badge bg-secondary-subtle text-dark ms-2">PRO</span></a></li>
-                  <li><a href="contact.html" class="dropdown-item">Contact<span
-                        class="badge bg-secondary-subtle text-dark ms-2">PRO</span></a></li>
-                  <li><a href="faqs.html" class="dropdown-item">FAQs<span
-                        class="badge bg-secondary-subtle text-dark ms-2">PRO</span></a></li>
-
-                </ul>
-              </li>
-              <!-- <li class="nav-item px-4">
-                <a href="https://templatesjungle.gumroad.com/l/fashionise-fashion-blog-free-html-website-template"
-                  class="nav-link fw-bold p-0 text-decoration-underline" target="_blank">GET PRO</a>
-              </li> -->
-
-            </ul>
-            <ul class="d-flex list-unstyled justify-content-center align-items-center ms-5 m-lg-0 m-5 text-center me-5">
-              <li class="d-flex align-items-center me-3">
-                <a href="# " data-bs-toggle="offcanvas" data-bs-target="#offcanvasAccount"
-                  aria-controls="offcanvasCart"> <svg class="icon" width="20" height="20">
-                    <use xlink:href="#user"></use>
-                  </svg></a>
-              </li>
-              <li class="d-flex align-items-center me-3 nav-icons search-item">
-                <a href="" class="search-button"> <svg class="icon" width="20" height="20">
-                    <use xlink:href="#search"></use>
-                  </svg></a>
-              </li>
-              <li class="d-flex align-items-center me-4">
-                <a class="" href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart"
-                  aria-controls="offcanvasCart"> <svg class="icon" width="20" height="20">
-                    <use xlink:href="#cart"></use>
-                  </svg></a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </nav>
-  </header>
+  <div id="header"></div>
 
   <!-- header-banner section -->
   <section id="slider" class="pt-5">
@@ -663,16 +547,17 @@
         <div class="col-md-3 col-sm-6 mb-4">
           <div class="product-card image-zoom-effect link-effect d-flex flex-wrap">
             <div class="image-holder">
-              <img src="https://down-vn.img.susercontent.com/file/vn-11134207-7qukw-leyc26wz7w472b.webp"
-                alt="product-item" class="product-image img-fluid">
+              <img src="https://down-vn.img.susercontent.com/file/vn-11134207-7ras8-m325s11b90c07a" alt="product-item"
+                class="product-image img-fluid">
             </div>
             <div class="cart-concern w-100 d-flex mt-2 justify-content-between">
               <p class="card-title text-uppercase fw-semibold text-primary" style="font-size: 14px;">
-                <a href="single-product.html" class="text-primary">Baggy grey shirt</a>
+                <a href="single-product.html" class="text-primary">NEBULA CARGO PANTS - BLACK</a>
               </p>
               <div class="cart-info">
-                <a class="pseudo-text-effect text-end" href="#" data-after="ADD TO CART">
-                  <span class="fs-6 fw-medium" style="color: #977A50;">135.000đ</span>
+                <a class="pseudo-text-effect" href="#" data-after="ADD TO CART"
+                  onclick="saveProductData(event, 'NEBULA CARGO PANTS - BLACK', 'https://down-vn.img.susercontent.com/file/vn-11134207-7ras8-m325s11b90c07a', '169.000đ')">
+                  <span class="fs-6 fw-medium" style="color: #977A50;">169.000đ</span>
                 </a>
               </div>
             </div>
@@ -682,16 +567,17 @@
         <div class="col-md-3 col-sm-6 mb-4">
           <div class="product-card image-zoom-effect link-effect d-flex flex-wrap">
             <div class="image-holder">
-              <img src="https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-ltzmekj94tgf76@resize_w900_nl.webp"
-                alt="product-item" class="product-image img-fluid">
+              <img src="https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-ls9nlg0h73x556" alt="product-item"
+                class="product-image img-fluid">
             </div>
             <div class="cart-concern w-100 d-flex mt-2 justify-content-between">
               <p class="card-title text-uppercase fw-semibold text-primary" style="font-size: 14px;">
-                <a href="single-product.html" class="text-primary">HIGH CLASS SHIRT - BLACK</a>
+                <a href="single-product.html" class="text-primary">EMBROIDERED POLO - GREY</a>
               </p>
               <div class="cart-info">
-                <a class="pseudo-text-effect" href="#" data-after="ADD TO CART">
-                  <span class="fs-6 fw-medium" style="color: #977A50;">169.000đ</span>
+                <a class="pseudo-text-effect" href="#" data-after="ADD TO CART"
+                  onclick="saveProductData(event, 'EMBROIDERED POLO - GREY', 'https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-ls9nlg0h73x556', '185.000đ')">
+                  <span class="fs-6 fw-medium" style="color: #977A50;">185.000đ</span>
                 </a>
               </div>
             </div>
@@ -706,16 +592,19 @@
             </div>
             <div class="cart-concern w-100 d-flex mt-2 justify-content-between">
               <p class="card-title text-uppercase fw-semibold text-primary" style="font-size: 14px;">
-                <a href="single-product.html" class="text-primary">CLASIC TEE </a>
+                <a href="single-product.html" class="text-primary">CLASIC TEE</a>
               </p>
               <div class="cart-info">
-                <a class="pseudo-text-effect" href="#" data-after="ADD TO CART">
+                <a class="pseudo-text-effect" href="#" data-after="ADD TO CART"
+                  onclick="saveProductData(event, 'CLASIC TEE', 'https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-ls6kojslvuf86e', '249.000đ')">
                   <span class="fs-6 fw-medium" style="color: #977A50;">249.000đ</span>
                 </a>
               </div>
             </div>
           </div>
         </div>
+
+
 
         <div class="col-md-3 col-sm-6 mb-4">
           <div class="product-card image-zoom-effect link-effect d-flex flex-wrap">
@@ -725,10 +614,11 @@
             </div>
             <div class="cart-concern w-100 d-flex mt-2 justify-content-between">
               <p class="card-title text-uppercase fw-semibold text-primary" style="font-size: 14px;">
-                <a href="single-product.html" class="text-primary">HIGH CLASS SHIRT - WHITE </a>
+                <a href="single-product.html" class="text-primary">HIGH CLASS SHIRT - WHITE</a>
               </p>
               <div class="cart-info">
-                <a class="pseudo-text-effect" href="#" data-after="ADD TO CART">
+                <a class="pseudo-text-effect" href="#" data-after="ADD TO CART"
+                  onclick="saveProductData(event, 'HIGH CLASS SHIRT - WHITE', 'https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-ltzmekk2o5cvf1', '169.000đ')">
                   <span class="fs-6 fw-medium" style="color: #977A50;">169.000đ</span>
                 </a>
               </div>
@@ -744,10 +634,11 @@
             </div>
             <div class="cart-concern w-100 d-flex mt-2 justify-content-between">
               <p class="card-title text-uppercase fw-semibold text-primary" style="font-size: 14px;">
-                <a href="single-product.html" class="text-primary">BEYOND POLO -BLACK</a>
+                <a href="single-product.html" class="text-primary">BEYOND POLO - BLACK</a>
               </p>
               <div class="cart-info">
-                <a class="pseudo-text-effect" href="#" data-after="ADD TO CART">
+                <a class="pseudo-text-effect" href="#" data-after="ADD TO CART"
+                  onclick="saveProductData(event, 'BEYOND POLO - BLACK', 'https://down-vn.img.susercontent.com/file/vn-11134207-7qukw-leyc26wz3oev43', '135.000đ')">
                   <span class="fs-6 fw-medium" style="color: #977A50;">135.000đ</span>
                 </a>
               </div>
@@ -763,16 +654,18 @@
             </div>
             <div class="cart-concern w-100 d-flex mt-2 justify-content-between">
               <p class="card-title text-uppercase fw-semibold text-primary" style="font-size: 14px;">
-                <a href="single-product.html" class="text-primary"> NEBULA CARGO PANTS - BLACK</a>
+                <a href="single-product.html" class="text-primary">NEBULA CARGO PANTS - BLACK</a>
               </p>
               <div class="cart-info">
-                <a class="pseudo-text-effect" href="#" data-after="ADD TO CART">
+                <a class="pseudo-text-effect" href="#" data-after="ADD TO CART"
+                  onclick="saveProductData(event, 'NEBULA CARGO PANTS - BLACK', 'https://down-vn.img.susercontent.com/file/vn-11134207-7ras8-m325s11b90c07a', '169.000đ')">
                   <span class="fs-6 fw-medium" style="color: #977A50;">169.000đ</span>
                 </a>
               </div>
             </div>
           </div>
         </div>
+
         <div class="col-md-3 col-sm-6 mb-4">
           <div class="product-card image-zoom-effect link-effect d-flex flex-wrap">
             <div class="image-holder">
@@ -784,13 +677,15 @@
                 <a href="single-product.html" class="text-primary">EMBROIDERED POLO - GREY</a>
               </p>
               <div class="cart-info">
-                <a class="pseudo-text-effect" href="#" data-after="ADD TO CART">
+                <a class="pseudo-text-effect" href="#" data-after="ADD TO CART"
+                  onclick="saveProductData(event, 'EMBROIDERED POLO - GREY', 'https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-ls9nlg0h73x556', '185.000đ')">
                   <span class="fs-6 fw-medium" style="color: #977A50;">185.000đ</span>
                 </a>
               </div>
             </div>
           </div>
         </div>
+
 
         <div class="col-md-3 col-sm-6 mb-4">
           <div class="product-card image-zoom-effect link-effect d-flex flex-wrap">
@@ -803,13 +698,15 @@
                 <a href="single-product.html" class="text-primary">PRINT SOUNDING - WHITE</a>
               </p>
               <div class="cart-info">
-                <a class="pseudo-text-effect" href="#" data-after="ADD TO CART">
+                <a class="pseudo-text-effect" href="#" data-after="ADD TO CART"
+                  onclick="saveProductData(event, 'PRINT SOUNDING - WHITE', 'https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-ls4ggygep1ac83', '209.000đ')">
                   <span class="fs-6 fw-medium" style="color: #977A50;">209.000đ</span>
                 </a>
               </div>
             </div>
           </div>
         </div>
+
         <div class="col-md-3 col-sm-6 mb-4">
           <div class="product-card image-zoom-effect link-effect d-flex flex-wrap">
             <div class="image-holder">
@@ -818,16 +715,18 @@
             </div>
             <div class="cart-concern w-100 d-flex mt-2 justify-content-between">
               <p class="card-title text-uppercase fw-semibold text-primary" style="font-size: 14px;">
-                <a href="single-product.html" class="text-primary"> OVERSIZE POLO </a>
+                <a href="single-product.html" class="text-primary">OVERSIZE POLO</a>
               </p>
               <div class="cart-info">
-                <a class="pseudo-text-effect" href="#" data-after="ADD TO CART">
+                <a class="pseudo-text-effect" href="#" data-after="ADD TO CART"
+                  onclick="saveProductData(event, 'OVERSIZE POLO', 'https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-ls9nlg0hnyro87', '249.000đ')">
                   <span class="fs-6 fw-medium" style="color: #977A50;">249.000đ</span>
                 </a>
               </div>
             </div>
           </div>
         </div>
+
         <div class="col-md-3 col-sm-6 mb-4">
           <div class="product-card image-zoom-effect link-effect d-flex flex-wrap">
             <div class="image-holder">
@@ -836,16 +735,18 @@
             </div>
             <div class="cart-concern w-100 d-flex mt-2 justify-content-between">
               <p class="card-title text-uppercase fw-semibold text-primary" style="font-size: 14px;">
-                <a href="single-product.html" class="text-primary"> FROM BOXY TEE - BLACK</a>
+                <a href="single-product.html" class="text-primary">FROM BOXY TEE - BLACK</a>
               </p>
               <div class="cart-info">
-                <a class="pseudo-text-effect" href="#" data-after="ADD TO CART">
+                <a class="pseudo-text-effect" href="#" data-after="ADD TO CART"
+                  onclick="saveProductData(event, 'FROM BOXY TEE - BLACK', 'https://down-vn.img.susercontent.com/file/sg-11134201-22120-z4i9bf4auilvbb', '159.000đ')">
                   <span class="fs-6 fw-medium" style="color: #977A50;">159.000đ</span>
                 </a>
               </div>
             </div>
           </div>
         </div>
+
         <div class="col-md-3 col-sm-6 mb-4">
           <div class="product-card image-zoom-effect link-effect d-flex flex-wrap">
             <div class="image-holder">
@@ -854,35 +755,18 @@
             </div>
             <div class="cart-concern w-100 d-flex mt-2 justify-content-between">
               <p class="card-title text-uppercase fw-semibold text-primary" style="font-size: 14px;">
-                <a href="single-product.html" class="text-primary"> POCKET SHORTS </a>
+                <a href="single-product.html" class="text-primary">POCKET SHORTS</a>
               </p>
               <div class="cart-info">
-                <a class="pseudo-text-effect" href="#" data-after="ADD TO CART">
+                <a class="pseudo-text-effect" href="#" data-after="ADD TO CART"
+                  onclick="saveProductData(event, 'POCKET SHORTS', 'https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lynbictyytsd7b', '189.000đ')">
                   <span class="fs-6 fw-medium" style="color: #977A50;">189.000đ</span>
                 </a>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-md-3 col-sm-6 mb-4">
-          <div class="product-card image-zoom-effect link-effect d-flex flex-wrap">
-            <div class="image-holder">
-              <img src="https://down-vn.img.susercontent.com/file/vn-11134207-7ras8-m2hu6sulfws4a6" alt="product-item"
-                class="product-image img-fluid">
-            </div>
-            <div class="cart-concern w-100 d-flex mt-2 justify-content-between">
-              <p class="card-title text-uppercase fw-semibold text-primary" style="font-size: 14px;">
-                <a href="single-product.html" class="text-primary"> OVERSIZE SHIRT - BLACK
-                </a>
-              </p>
-              <div class="cart-info">
-                <a class="pseudo-text-effect" href="#" data-after="ADD TO CART">
-                  <span class="fs-6 fw-medium" style="color: #977A50;">159.000đ</span>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
+
         <div class="col-md-3 col-sm-6 mb-4">
           <div class="product-card image-zoom-effect link-effect d-flex flex-wrap">
             <div class="image-holder">
@@ -891,16 +775,18 @@
             </div>
             <div class="cart-concern w-100 d-flex mt-2 justify-content-between">
               <p class="card-title text-uppercase fw-semibold text-primary" style="font-size: 14px;">
-                <a href="single-product.html" class="text-primary">START TEA - BLACK</a>
+                <a href="single-product.html" class="text-primary"> START TEA - BLACK </a>
               </p>
               <div class="cart-info">
-                <a class="pseudo-text-effect" href="#" data-after="ADD TO CART">
+                <a class="pseudo-text-effect" href="#" data-after="ADD TO CART"
+                  onclick="saveProductData(event, 'START TEA - BLACK', 'https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lx7vqszm6bq1bc', '139.000đ')">
                   <span class="fs-6 fw-medium" style="color: #977A50;">139.000đ</span>
                 </a>
               </div>
             </div>
           </div>
         </div>
+
         <div class="col-md-3 col-sm-6 mb-4">
           <div class="product-card image-zoom-effect link-effect d-flex flex-wrap">
             <div class="image-holder">
@@ -909,16 +795,18 @@
             </div>
             <div class="cart-concern w-100 d-flex mt-2 justify-content-between">
               <p class="card-title text-uppercase fw-semibold text-primary" style="font-size: 14px;">
-                <a href="single-product.html" class="text-primary"> ECOCHIC SWEATER - DARK BLUE</a>
+                <a href="single-product.html" class="text-primary"> ECOCHIC SWEATER - DARK BLUE </a>
               </p>
               <div class="cart-info">
-                <a class="pseudo-text-effect" href="#" data-after="ADD TO CART">
+                <a class="pseudo-text-effect" href="#" data-after="ADD TO CART"
+                  onclick="saveProductData(event, 'ECOCHIC SWEATER - DARK BLUE', 'https://down-vn.img.susercontent.com/file/vn-11134207-7ras8-m1l13nvrb783d4', '229.000đ')">
                   <span class="fs-6 fw-medium" style="color: #977A50;">229.000đ</span>
                 </a>
               </div>
             </div>
           </div>
         </div>
+
         <div class="col-md-3 col-sm-6 mb-4">
           <div class="product-card image-zoom-effect link-effect d-flex flex-wrap">
             <div class="image-holder">
@@ -927,16 +815,18 @@
             </div>
             <div class="cart-concern w-100 d-flex mt-2 justify-content-between">
               <p class="card-title text-uppercase fw-semibold text-primary" style="font-size: 14px;">
-                <a href="single-product.html" class="text-primary"> DAVIES JACKET - BLACK</a>
+                <a href="single-product.html" class="text-primary"> DAVIES JACKET - BLACK </a>
               </p>
               <div class="cart-info">
-                <a class="pseudo-text-effect" href="#" data-after="ADD TO CART">
+                <a class="pseudo-text-effect" href="#" data-after="ADD TO CART"
+                  onclick="saveProductData(event, 'DAVIES JACKET - BLACK', 'https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-ls3icjk3mmxl8d', '359.000đ')">
                   <span class="fs-6 fw-medium" style="color: #977A50;">359.000đ</span>
                 </a>
               </div>
             </div>
           </div>
         </div>
+
         <div class="col-md-3 col-sm-6 mb-4">
           <div class="product-card image-zoom-effect link-effect d-flex flex-wrap">
             <div class="image-holder">
@@ -948,13 +838,15 @@
                 <a href="single-product.html" class="text-primary"> PLEATED PANTS - BLACK/WHITE</a>
               </p>
               <div class="cart-info">
-                <a class="pseudo-text-effect" href="#" data-after="ADD TO CART">
+                <a class="pseudo-text-effect" href="product.html" data-after="ADD TO CART"
+                  onclick="saveProductData(event, 'PLEATED PANTS - BLACK/WHITE', 'https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lz3qfkr2sq4t38', '159.000đ')">
                   <span class="fs-6 fw-medium" style="color: #977A50;">159.000đ</span>
                 </a>
               </div>
             </div>
           </div>
         </div>
+
         <div class="col-md-3 col-sm-6 mb-4">
           <div class="product-card image-zoom-effect link-effect d-flex flex-wrap">
             <div class="image-holder">
@@ -966,13 +858,15 @@
                 <a href="single-product.html" class="text-primary">WIDE PANTS - WHITE</a>
               </p>
               <div class="cart-info">
-                <a class="pseudo-text-effect" href="#" data-after="ADD TO CART">
+                <a class="pseudo-text-effect" href="product.html" data-after="ADD TO CART"
+                  onclick="saveProductData(event, 'WIDE PANTS - WHITE', 'https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lo8m5rwrki2z2c', '159.000đ')">
                   <span class="fs-6 fw-medium" style="color: #977A50;">159.000đ</span>
                 </a>
               </div>
             </div>
           </div>
         </div>
+
         <div class="col-md-3 col-sm-6 mb-4">
           <div class="product-card image-zoom-effect link-effect d-flex flex-wrap">
             <div class="image-holder">
@@ -981,17 +875,18 @@
             </div>
             <div class="cart-concern w-100 d-flex mt-2 justify-content-between">
               <p class="card-title text-uppercase fw-semibold text-primary" style="font-size: 14px;">
-                <a href="single-product.html" class="text-primary"> SPORTY JOGGER- BLACK
-                </a>
+                <a href="single-product.html" class="text-primary"> SPORTY JOGGER- BLACK</a>
               </p>
               <div class="cart-info">
-                <a class="pseudo-text-effect" href="#" data-after="ADD TO CART">
+                <a class="pseudo-text-effect" href="product.html" data-after="ADD TO CART"
+                  onclick="saveProductData(event, 'SPORTY JOGGER- BLACK', 'https://down-vn.img.susercontent.com/file/vn-11134207-7ras8-m28zshtsgib8dc', '159.000đ')">
                   <span class="fs-6 fw-medium" style="color: #977A50;">159.000đ</span>
                 </a>
               </div>
             </div>
           </div>
         </div>
+
         <div class="col-md-3 col-sm-6 mb-4">
           <div class="product-card image-zoom-effect link-effect d-flex flex-wrap">
             <div class="image-holder">
@@ -1000,17 +895,18 @@
             </div>
             <div class="cart-concern w-100 d-flex mt-2 justify-content-between">
               <p class="card-title text-uppercase fw-semibold text-primary" style="font-size: 14px;">
-                <a href="single-product.html" class="text-primary"> BAGGY JEANS
-                </a>
+                <a href="single-product.html" class="text-primary"> BAGGY JEANS</a>
               </p>
               <div class="cart-info">
-                <a class="pseudo-text-effect" href="#" data-after="ADD TO CART">
+                <a class="pseudo-text-effect" href="product.html" data-after="ADD TO CART"
+                  onclick="saveProductData(event, 'BAGGY JEANS', 'https://down-vn.img.susercontent.com/file/sg-11134201-7ra41-m4jsrqljcz1s62', '359.000đ')">
                   <span class="fs-6 fw-medium" style="color: #977A50;">359.000đ</span>
                 </a>
               </div>
             </div>
           </div>
         </div>
+
         <div class="col-md-3 col-sm-6 mb-4">
           <div class="product-card image-zoom-effect link-effect d-flex flex-wrap">
             <div class="image-holder">
@@ -1023,7 +919,8 @@
                 </a>
               </p>
               <div class="cart-info">
-                <a class="pseudo-text-effect" href="#" data-after="ADD TO CART">
+                <a class="pseudo-text-effect" href="product.html" data-after="ADD TO CART"
+                  onclick="saveProductData(event, ' ZENITHROSE PANTS', 'https://down-vn.img.susercontent.com/file/sg-11134201-7qvet-livckwsam5xr48', '209.000đ')">
                   <span class="fs-6 fw-medium" style="color: #977A50;">209.000đ</span>
                 </a>
               </div>
@@ -1042,7 +939,8 @@
                 </a>
               </p>
               <div class="cart-info">
-                <a class="pseudo-text-effect" href="#" data-after="ADD TO CART">
+                <a class="pseudo-text-effect" href="product.html" data-after="ADD TO CART"
+                  onclick="saveProductData(event, ' CARGO PANTS', 'https://down-vn.img.susercontent.com/file/vn-11134207-7ras8-m14xgh94t117c4', '159.000đ')">
                   <span class="fs-6 fw-medium" style="color: #977A50;">159.000đ</span>
                 </a>
               </div>
@@ -1061,7 +959,8 @@
                 </a>
               </p>
               <div class="cart-info">
-                <a class="pseudo-text-effect" href="#" data-after="ADD TO CART">
+                <a class="pseudo-text-effect" href="product.html" data-after="ADD TO CART"
+                  onclick="saveProductData(event, 'BAGGY JEANS SHORT', 'https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-ltajcjn2i0g4de', '149.000đ')">
                   <span class="fs-6 fw-medium" style="color: #977A50;">149.000đ</span>
                 </a>
               </div>
@@ -1080,7 +979,8 @@
                 </a>
               </p>
               <div class="cart-info">
-                <a class="pseudo-text-effect" href="#" data-after="ADD TO CART">
+                <a class="pseudo-text-effect" href="product.html" data-after="ADD TO CART"
+                  onclick="saveProductData(event, 'SHORTS - RED', 'https://down-vn.img.susercontent.com/file/sg-11134201-7rd4m-lvuayy65d6o8df', '149.000đ')">
                   <span class="fs-6 fw-medium" style="color: #977A50;">149.000đ</span>
                 </a>
               </div>
@@ -1099,8 +999,9 @@
                 </a>
               </p>
               <div class="cart-info">
-                <a class="pseudo-text-effect" href="#" data-after="ADD TO CART">
-                  <span class="fs-6 fw-medium" style="color: #977A50;">146.000đ</span>
+                <a class="pseudo-text-effect" href="product.html" data-after="ADD TO CART"
+                  onclick="saveProductData(event, 'SPORTS TEE 09-WHITE', 'https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lzhwaoz356x992', '149.000đ')">
+                  <span class="fs-6 fw-medium" style="color: #977A50;">149.000đ</span>
                 </a>
               </div>
             </div>
@@ -1118,8 +1019,9 @@
                 </a>
               </p>
               <div class="cart-info">
-                <a class="pseudo-text-effect" href="#" data-after="ADD TO CART">
-                  <span class="fs-6 fw-medium" style="color: #977A50;">146.000đ</span>
+                <a class="pseudo-text-effect" href="product.html" data-after="ADD TO CART"
+                  onclick="saveProductData(event, ' SPORTS TEE 09-BLACK', 'https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lzhwbnse5qchfd', '149.000đ')">
+                  <span class="fs-6 fw-medium" style="color: #977A50;">149.000đ</span>
                 </a>
               </div>
             </div>
@@ -1137,7 +1039,8 @@
                 </a>
               </p>
               <div class="cart-info">
-                <a class="pseudo-text-effect" href="#" data-after="ADD TO CART">
+                <a class="pseudo-text-effect" href="product.html" data-after="ADD TO CART"
+                  onclick="saveProductData(event, ' SPORTS TEE 09-RED', 'https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lzhwaoz33scte5', '149.000đ')">
                   <span class="fs-6 fw-medium" style="color: #977A50;">149.000đ</span>
                 </a>
               </div>
@@ -1156,7 +1059,8 @@
                 </a>
               </p>
               <div class="cart-info">
-                <a class="pseudo-text-effect" href="#" data-after="ADD TO CART">
+                <a class="pseudo-text-effect" href="product.html" data-after="ADD TO CART"
+                  onclick="saveProductData(event, 'BOXY HOODIE-BLACK', 'https://down-vn.img.susercontent.com/file/vn-11134207-7ras8-m16jc0zm2g6ya5', '249.000đ')">
                   <span class="fs-6 fw-medium" style="color: #977A50;">249.000đ</span>
                 </a>
               </div>
@@ -1177,7 +1081,8 @@
                 </a>
               </p>
               <div class="cart-info">
-                <a class="pseudo-text-effect" href="#" data-after="ADD TO CART">
+                <a class="pseudo-text-effect" href="product.html" data-after="ADD TO CART"
+                  onclick="saveProductData(event, 'RETRO JEANS', 'https://down-vn.img.susercontent.com/file/vn-11134207-7ras8-m1jenbxuyhqr54', '169.000đ')">
                   <span class="fs-6 fw-medium" style="color: #977A50;">169.000đ</span>
                 </a>
               </div>
@@ -1196,7 +1101,8 @@
                 </a>
               </p>
               <div class="cart-info">
-                <a class="pseudo-text-effect" href="#" data-after="ADD TO CART">
+                <a class="pseudo-text-effect" href="product.html" data-after="ADD TO CART"
+                  onclick="saveProductData(event, 'HOODIE ZIP-WHITE', 'https://down-vn.img.susercontent.com/file/vn-11134207-7ras8-m2t8gcclodru9a', '269.000đ')">
                   <span class="fs-6 fw-medium" style="color: #977A50;">269.000đ</span>
                 </a>
               </div>
@@ -1681,6 +1587,14 @@
     </div>
   </div>
 
+  <script>
+    function saveProductData(event, name, image, price) {
+      event.preventDefault(); // Ngăn chặn chuyển hướng mặc định
+      const product = { name, image, price };
+      localStorage.setItem('selectedProduct', JSON.stringify(product));
+      window.location.href = 'product.html'; // Chuyển hướng sau khi lưu
+    }
+  </script>
   <script src="js/jquery-1.11.0.min.js"></script>
   <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
   <script type="text/javascript" src="js/plugins.js"></script>
